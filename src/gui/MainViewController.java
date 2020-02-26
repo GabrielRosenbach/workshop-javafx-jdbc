@@ -57,7 +57,7 @@ public class MainViewController implements Initializable {
 			VBox newVBox = loader.load();
 			
 			//Pega a scene do main
-			Scene mainScene = Main.getScene();
+			Scene mainScene = Main.getMainScene();
 			//Pega a vbox do main, onde será carregado os conteudos
 			VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
 			//Pega o menu do main, para ele continuar sendo exibido

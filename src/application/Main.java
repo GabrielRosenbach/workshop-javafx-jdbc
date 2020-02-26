@@ -34,7 +34,7 @@ public class Main extends Application {
 		}
 	}
 	
-	public static Scene getScene() {
+	public static Scene getMainScene() {
 		
 		return mainScene;
 	}
