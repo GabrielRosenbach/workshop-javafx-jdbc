@@ -2,6 +2,7 @@ package gui.util;
 
 import javafx.scene.control.TextField;
 
+/** Classe utilitaria para adicionar permições de dados nos campos */
 public class Constraints {
 
 	public static void setTextFieldInteger(TextField txt) {

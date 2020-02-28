@@ -14,6 +14,7 @@ import db.DBIntegrityException;
 import model.dao.DepartmentDAO;
 import model.entities.Department;
 
+/** Classe que implementa os metodos que podem ser executados no banco de dados, relacionados ao Departamento */
 public class DepartmentDAOImpl implements DepartmentDAO {
 
 	private Connection conn;

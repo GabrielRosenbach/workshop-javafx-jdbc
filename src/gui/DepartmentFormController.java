@@ -23,6 +23,7 @@ import model.entities.Department;
 import model.exceptions.ValidationException;
 import model.services.DepartmentService;
 
+/** Controller do formulario de cadastro / edição do Departamento */
 public class DepartmentFormController implements Initializable {
 
 	private Department entity;

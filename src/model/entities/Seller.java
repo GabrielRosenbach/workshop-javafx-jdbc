@@ -3,6 +3,7 @@ package model.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+/** Classe modelo do Vendedor */
 public class Seller implements Serializable {
 
 	private static final long serialVersionUID = 1L;

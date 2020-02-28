@@ -10,8 +10,12 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	
+	/**
+	 * Janela principal */
 	private static Scene mainScene;
-
+	
+	/**
+	 * Metodo que cria a janela base do programa */
 	@Override
 	public void start(Stage primaryStage) {
 		
@@ -34,11 +38,15 @@ public class Main extends Application {
 		}
 	}
 	
+	/**
+	 * Metodo que retorna a janela principal do programa */
 	public static Scene getMainScene() {
 		
 		return mainScene;
 	}
-
+	
+	/**
+	 * Metodo que inicia a parte grafica do programa */
 	public static void main(String[] args) {
 		launch(args);
 	}

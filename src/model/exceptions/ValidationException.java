@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import java.util.Map;
 
+/** Classe de exception que valida os dados nos imputs dos forms */
 public class ValidationException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;

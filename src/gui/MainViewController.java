@@ -18,6 +18,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import model.services.DepartmentService;
 
+/** Controller principal */
 public class MainViewController implements Initializable {
 
 	@FXML

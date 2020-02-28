@@ -17,6 +17,7 @@ import model.dao.SellerDAO;
 import model.entities.Department;
 import model.entities.Seller;
 
+/** Classe que implementa os metodos que podem ser executados no banco de dados, relacionados ao Vendedor */
 public class SellerDAOImpl implements SellerDAO {
 
 	private Connection conn;
