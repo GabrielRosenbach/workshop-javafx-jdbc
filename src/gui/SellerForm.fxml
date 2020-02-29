@@ -64,6 +64,7 @@
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin></Label>
+            <ComboBox fx:id="comboBoxDepartment" prefHeight="26.0" prefWidth="208.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
                   <Button fx:id="btSave" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#onBtSaveAction" prefWidth="90.0" text="Save" textAlignment="CENTER">
@@ -93,7 +94,6 @@
                      </cursor></Button>
                </children>
             </HBox>
-            <ComboBox fx:id="comboBoxDepartment" prefHeight="26.0" prefWidth="208.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
    </children>
