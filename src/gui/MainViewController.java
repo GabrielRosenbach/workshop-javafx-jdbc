@@ -17,72 +17,78 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import model.services.DepartmentService;
+import model.services.SellerService;
 
 /** Controller principal */
 public class MainViewController implements Initializable {
 
 	@FXML
 	private MenuItem menuItemSeller;
-	
+
 	@FXML
 	private MenuItem menuItemDepartment;
-	
+
 	@FXML
 	private MenuItem menuItemAbout;
-	
+
 	@FXML
 	public void onMenuItemSellerAction() {
-		
-		System.out.println("onMenuItemSellerAction");
+
+		loadView("/gui/SellerList.fxml", (SellerListController controller) -> {
+
+			controller.setSellerService(new SellerService());
+			controller.updateTableView();
+		});
 	}
-	
+
 	@FXML
 	public void onMenuItemDepartmentAction() {
-		
+
 		loadView("/gui/DepartmentList.fxml", (DepartmentListController controller) -> {
-			
+
 			controller.setDepartmentService(new DepartmentService());
 			controller.updateTableView();
 		});
 	}
-	
+
 	@FXML
 	public void onMenuItemAboutAction() {
-	
-		loadView("/gui/About.fxml", x -> {});
+
+		loadView("/gui/About.fxml", x -> {
+		});
 	}
-	
+
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 	}
-	
-	//Devido a multi-thread, garante que esse processamento nao será interrompido
+
+	// Devido a multi-thread, garante que esse processamento nao será interrompido
 	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {
-		
-		try {//Recebe o caminho da view que será carregada
+
+		try {// Recebe o caminho da view que será carregada
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			VBox newVBox = loader.load();
-			
-			//Pega a scene do main
+
+			// Pega a scene do main
 			Scene mainScene = Main.getMainScene();
-			//Pega a vbox do main, onde será carregado os conteudos
+			// Pega a vbox do main, onde será carregado os conteudos
 			VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
-			//Pega o menu do main, para ele continuar sendo exibido
+			// Pega o menu do main, para ele continuar sendo exibido
 			Node mainMenu = mainVBox.getChildren().get(0);
-			
-			//Limpa todos os filhos do main
+
+			// Limpa todos os filhos do main
 			mainVBox.getChildren().clear();
-			
-			//Adiciona o menu no main
+
+			// Adiciona o menu no main
 			mainVBox.getChildren().add(mainMenu);
-			//Adiciona todos os filhos do vbox da nova view
+			// Adiciona todos os filhos do vbox da nova view
 			mainVBox.getChildren().addAll(newVBox.getChildren());
-			
+
 			T controller = loader.getController();
 			initializingAction.accept(controller);
-		
+
 		} catch (IOException e) {
-			
+
 			Alerts.showAlert("IO Exception", "Error Loading View", e.getMessage(), AlertType.ERROR);
 		}
 	}
